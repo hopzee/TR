@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIGRAMINERS - Bitcoin Mining Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+        <div class="logo">MIGRAMINERS</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#" onclick="showPage('login')">Login</a></li>
+            <li><a href="#" onclick="showPage('register')">Sign up</a></li>
+        </ul>
+        <div class="cta-buttons">
+            <button onclick="showPage('login')">Login</button>
+            <button onclick="showPage('register')">Sign up</button>
+        </div>
+        <div class="toggle-sidebar" onclick="toggleSidebar()">
+            <img src="https://via.placeholder.com/30" alt="Toggle Sidebar">
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Imagine owning 1 BTC<br>We make it Reality!</h1>
+            <p>MIGRAMINERS Cloud Mining service with support for all major currencies & wallets. Mine instantly and from anywhere, directly online without complex and expensive hardware purchases!</p>
+            <button onclick="showPage('register')">Register for FREE to get 1000 GH/S mining speed as a gift</button>
+        </div>
+        <div class="hero-image">
+            <img src="https://via.placeholder.com/400x600" alt="Mining Hardware">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2>Why Choose MIGRAMINERS?</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <img src="https://via.placeholder.com/50" alt="Icon">
+                <h3>Easy to Use</h3>
+                <p>Our platform is designed for both beginners and experts.</p>
+            </div>
+            <div class="feature-item">
+                <img src="https://via.placeholder.com/50" alt="Icon">
+                <h3>Secure</h3>
+                <p>Your data and earnings are protected with advanced security.</p>
+            </div>
+            <div class="feature-item">
+                <img src="https://via.placeholder.com/50" alt="Icon">
+                <h3>Profitable</h3>
+                <p>Earn Bitcoin consistently with our efficient mining system.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-items">
+            <div class="faq-item">
+                <h3>What is MIGRAMINERS?</h3>
+                <p>MIGRAMINERS is a Bitcoin mining platform that helps you earn Bitcoin easily.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How do I withdraw my earnings?</h3>
+                <p>Contact support to initiate a withdrawal.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Page -->
+    <div id="login" class="page hidden">
+        <div class="sidebar">
+            <div class="sidebar-image">
+                <img src="https://via.placeholder.com/150" alt="Online Members">
+                <p>Join thousands of online members mining Bitcoin today!</p>
+            </div>
+        </div>
+        <div class="form-container">
+            <h1>Login</h1>
+            <form id="loginForm">
+                <label>Username:</label><br>
+                <input type="text" id="loginUsername" required><br>
+                <label>Account Password:</label><br>
+                <input type="password" id="loginPassword" required><br><br>
+                <button type="submit">Sign in</button>
+                <p><a href="#">Reset password</a></p>
+            </form>
+            <div class="social-links">
+                <p>Follow us:</p>
+                <a href="#"><img src="https://via.placeholder.com/30" alt="Social Icon"></a>
+                <a href="#"><img src="https://via.placeholder.com/30" alt="Social Icon"></a>
+                <a href="#"><img src="https://via.placeholder.com/30" alt="Social Icon"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Page -->
+    <div id="register" class="page hidden">
+        <h1>Register</h1>
+        <form id="registerForm">
+            <label>Username:</label><br>
+            <input type="text" id="regUsername" required><br>
+            <label>Password:</label><br>
+            <input type="password" id="regPassword" required><br><br>
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="#" onclick="showPage('login')">Login here</a>.</p>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div id="dashboard" class="page hidden">
+        <div class="sidebar">
+            <ul class="sidebar-menu">
+                <li onclick="showDashboardSection('dashboard')"><img src="https://via.placeholder.com/20" alt="Icon"> Dashboard</li>
+                <li onclick="showDashboardSection('purchase')"><img src="https://via.placeholder.com/20" alt="Icon"> Purchase</li>
+                <li onclick="showDashboardSection('recruitment')"><img src="https://via.placeholder.com/20" alt="Icon"> Recruitment</li>
+                <li onclick="showDashboardSection('withdraw')"><img src="https://via.placeholder.com/20" alt="Icon"> Withdraw</li>
+                <li onclick="showDashboardSection('settings')"><img src="https://via.placeholder.com/20" alt="Icon"> Settings</li>
+            </ul>
+        </div>
+        <div class="dashboard-content">
+            <div id="dashboard-section" class="dashboard-section">
+                <h1>Dashboard</h1>
+                <p>Total Miner Speed: <span id="minerSpeed">186.00 TH/s</span></p>
+                <p>Short-Term Profit: $X.XX</p>
+                <p>Long-Term Profit: $X.XX</p>
+                <p>Referral Bonus: $X.XX</p>
+                <button onclick="showDashboardSection('recruitment')">Recruitment Dashboard</button>
+                <button onclick="showDashboardSection('purchase')">Purchase New Miners</button>
+                <button onclick="showDashboardSection('withdraw')">Withdraw</button>
+                <button onclick="showDashboardSection('settings')">Settings</button>
+            </div>
+            <div id="purchase-section" class="dashboard-section hidden">
+                <h1>Purchase</h1>
+                <p>Buy additional miners to increase your mining speed.</p>
+                <button onclick="showDashboardSection('dashboard')">Back to Dashboard</button>
+            </div>
+            <div id="recruitment-section" class="dashboard-section hidden">
+                <h1>Recruitment</h1>
+                <p>Invite friends and earn referral bonuses.</p>
+                <button onclick="showDashboardSection('dashboard')">Back to Dashboard</button>
+            </div>
+            <div id="withdraw-section" class="dashboard-section hidden">
+                <h1>Withdraw</h1>
+                <p>Send Minings to any Crypto Wallet</p>
+                <p>Transfer fee: 0.0005 BTC | Processing time: 1-3 business days</p>
+                <p>Account Mining Balance: 0.0 BTC</p>
+                <p>Minimum Withdrawal Amount: 0.001 BTC</p>
+                <p>Available Balance to Withdraw: 0.0 BTC</p>
+                <p>Overall Paid Out: 0.0 BTC</p>
+                <form id="withdrawForm">
+                    <label>Payout Amount (BTC):</label><br>
+                    <input type="number" step="0.0001" required><br>
+                    <label>Target Crypto Coin:</label><br>
+                    <select>
+                        <option value="BTC">Bitcoin (BTC)</option>
+                        <option value="ETH">Ethereum (ETH)</option>
+                    </select><br>
+                    <label>BTC Address:</label><br>
+                    <input type="text" required><br><br>
+                    <button type="submit">Claim Your Minings Now</button>
+                </form>
+                <p><strong>Note:</strong> Verify cryptocurrency address carefully. Transactions cannot be reversed.</p>
+                <button onclick="showDashboardSection('dashboard')">Back to Dashboard</button>
+            </div>
+            <div id="settings-section" class="dashboard-section hidden">
+                <h1>Settings</h1>
+                <form id="updateAccountForm">
+                    <label>Email Address:</label><br>
+                    <input type="email" required><br>
+                    <label>Current Password:</label><br>
+                    <input type="password" required><br>
+                    <label>New Password:</label><br>
+                    <input type="password" required><br><br>
+                    <button type="submit">Update Account</button>
+                </form>
+                <h2>Multi-Factor Authentication</h2>
+                <p>Add this secret to your 2FA app:</p>
+                <img src="https://via.placeholder.com/100" alt="QR Code">
+                <button onclick="showDashboardSection('dashboard')">Back to Dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
